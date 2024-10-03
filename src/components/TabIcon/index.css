@@ -1,0 +1,14 @@
+.style-clicked-tab-icon {
+  color: #fec653;
+  font-size: 25px;
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.style-tab-icon {
+  color: #ffffff;
+  font-size: 25px;
+  font-weight: bold;
+  cursor: pointer;
+}

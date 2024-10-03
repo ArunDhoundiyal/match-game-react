@@ -1,0 +1,12 @@
+.random-image-container {
+  border: solid 1px red;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.style-random-image {
+  height: 400px;
+  width: 75%;
+}
