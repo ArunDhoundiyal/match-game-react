@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useEffect, useRef} from 'react'
 import Header from '../Header'
 import RandomImage from '../RandomImage'
 import TabIcon from '../TabIcon'
@@ -11,7 +11,26 @@ const Home = ({imagesList, tabsList}) => {
   const [tabId, setTabId] = useState(tabsList[0].tabId)
   const [randomImg, setRandomImg] = useState(imagesList[0].imageUrl)
   const [score, setScore] = useState(0)
-  const [gameOver, SetGameOver] = useState(false)
+  const [gameOver, setGameOver] = useState(false)
+  const [second, setSecond] = useState(60)
+  const [stopTimer, setStopTimer] = useState(true)
+  const intervalRef = useRef(null)
+
+  useEffect(() => {
+    if (stopTimer) {
+      intervalRef.current = setInterval(() => {
+        setSecond(preSecond => preSecond - 1)
+      }, 1000)
+    }
+    return () => clearInterval(intervalRef.current)
+  }, [stopTimer])
+
+  useEffect(() => {
+    if (second === 0) {
+      clearInterval(intervalRef.current)
+      setGameOver(preState => !preState)
+    }
+  }, [second])
 
   const filterImageList = imagesList.filter(
     eachImageList => eachImageList.category === tabId,
@@ -20,7 +39,6 @@ const Home = ({imagesList, tabsList}) => {
     setTabId(id)
   }
 
-  //
   const generateRandomImage = () => {
     const randomImage =
       imagesList[Math.floor(Math.random() * imagesList.length)].imageUrl
@@ -32,17 +50,18 @@ const Home = ({imagesList, tabsList}) => {
       generateRandomImage()
       setScore(prevScore => prevScore + 1)
     } else {
-      SetGameOver(preState => !preState)
+      setGameOver(preState => !preState)
+      setStopTimer(preState => !preState)
     }
   }
 
   return (
     <div className="home-bg-container">
+      <Header score={score} second={second} />
       {gameOver ? (
         <GameOver score={score} />
       ) : (
         <>
-          <Header score={score} />
           <RandomImage randomImg={randomImg} />
           <ul className="tab-icon-container">
             {tabsList.map(tabItem => (

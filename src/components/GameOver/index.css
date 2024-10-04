@@ -1,0 +1,53 @@
+.game-over-bg-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-size: cover;
+  justify-content: center;
+  font-family: 'Roboto';
+}
+
+.game-over-container {
+  height: 90vh;
+  width: 700px;
+}
+.game-over-img-container {
+  background-image: url('https://assets.ccbp.in/frontend/react-js/match-game-score-card-lg-bg.png');
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.trophy {
+  height: 300px;
+  margin-top: 120px;
+}
+.your-score-heading {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 400;
+}
+.score-heading {
+  color: #ffffff;
+  font-size: 40px;
+}
+.play-again-button {
+  color: #ffffff;
+  font-family: 'Roboto';
+  height: 50px;
+  background-color: #cf60c8;
+  margin-top: 40px;
+  font-size: 20px;
+  width: 200px;
+  border-radius: 12px;
+  border: solid 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

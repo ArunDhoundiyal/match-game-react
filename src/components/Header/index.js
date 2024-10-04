@@ -1,6 +1,6 @@
 import './index.css'
 
-const Header = ({score}) => (
+const Header = ({score, second}) => (
   <div className="header-container">
     <img
       src="https://assets.ccbp.in/frontend/react-js/match-game-website-logo.png"
@@ -18,7 +18,7 @@ const Header = ({score}) => (
             alt="timer"
             className="timer"
           />
-          <p className="count-timer">16 sec</p>
+          <p className="count-timer">{second} sec</p>
         </div>
       </div>
     </div>
